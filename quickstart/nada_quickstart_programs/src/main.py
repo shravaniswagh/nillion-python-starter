@@ -1,3 +1,4 @@
+# THIS CODE GENERATES RANDOM JOKE OR A QUOTE!    
 from nada_dsl import *
 import random
 
