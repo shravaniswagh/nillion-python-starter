@@ -35,10 +35,11 @@ def nada_main():
     random_index = random.randint(0, len(quotes_or_jokes) - 1)
     selected_quote_or_joke = quotes_or_jokes[random_index]
 
-    # Define a Secret input to hold the selected quote or joke
-    quote_or_joke = Secret(Input(name="quote_or_joke", party=party1))
+    # Define a SecretString to hold the selected quote or joke
+    quote_or_joke = SecretString(selected_quote_or_joke)
 
-    # Assign the selected quote or joke to the input
-    quote_or_joke.set_value(selected_quote_or_joke)
+    # Use Input to provide the quote or joke to a party
+    input_quote_or_joke = Input(name="quote_or_joke", party=party1, value=quote_or_joke)
 
-    return [Output(quote_or_joke, "my_output", party3)]
+    return [Output(input_quote_or_joke, "my_output", party3)]
+
